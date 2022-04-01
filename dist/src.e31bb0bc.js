@@ -2355,14 +2355,40 @@ var _menu = _interopRequireDefault(require("./menu.json"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var refs = {
+  body: document.querySelector('body'),
   menuList: document.querySelector('.js-menu'),
-  markup: createMenuMarkup(_menu.default)
+  themeSwitch: document.querySelector('#theme-switch-toggle'),
+  menuMarkup: markupMenuFromTpl(_menu.default),
+  theme: {
+    LIGHT: 'light-theme',
+    DARK: 'dark-theme'
+  }
 };
-refs.menuList.insertAdjacentHTML('beforeend', refs.markup);
-console.log(refs.menuList); // console.log(menuItemMarkup(menu));
+refs.menuList.insertAdjacentHTML('beforeend', refs.menuMarkup);
 
-function createMenuMarkup(items) {
-  return (0, _menuItem.default)(items);
+if (localStorage.length) {
+  refs.body.classList.add(localStorage.getItem('Theme'));
+  refs.themeSwitch.setAttribute('checked', true);
+}
+
+refs.themeSwitch.addEventListener('change', onCheckboxChange);
+
+function markupMenuFromTpl(data) {
+  return (0, _menuItem.default)(data);
+}
+
+function onCheckboxChange() {
+  refs.body.classList.toggle(refs.theme.DARK);
+
+  if (refs.body.classList.contains(refs.theme.DARK)) {
+    refs.themeSwitch.setAttribute('checked', true);
+    localStorage.setItem('Theme', refs.theme.DARK);
+    localStorage.setItem('IsChecked', true);
+  } else {
+    refs.themeSwitch.setAttribute('checked', false);
+    localStorage.removeItem('Theme');
+    localStorage.removeItem('IsChecked');
+  }
 }
 },{"./templates/menu-item.hbs":"templates/menu-item.hbs","./menu.json":"menu.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

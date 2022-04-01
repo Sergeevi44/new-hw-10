@@ -1,15 +1,37 @@
-import menuItemMarkup from './templates/menu-item.hbs';
+import menuTpl from './templates/menu-item.hbs';
 import menu from './menu.json';
 
 const refs = {
+	body: document.querySelector('body'),
 	menuList: document.querySelector('.js-menu'),
-	markup: createMenuMarkup(menu),
-};
+	themeSwitch: document.querySelector('#theme-switch-toggle'),
+	menuMarkup: markupMenuFromTpl(menu),
+	theme:{
+  		LIGHT: 'light-theme',
+  		DARK: 'dark-theme',
+		},
+}
 
-refs.menuList.insertAdjacentHTML('beforeend', refs.markup);
-console.log(refs.menuList);
-// console.log(menuItemMarkup(menu));
+refs.menuList.insertAdjacentHTML('beforeend', refs.menuMarkup);
+if (localStorage.length) {
+	refs.body.classList.add(localStorage.getItem('Theme'));
+	refs.themeSwitch.setAttribute('checked', true);
+}
+refs.themeSwitch.addEventListener('change', onCheckboxChange);
 
-function createMenuMarkup(items){
-	return menuItemMarkup(items);
+function markupMenuFromTpl(data) {
+	return menuTpl(data);
+}
+
+function onCheckboxChange() {
+	refs.body.classList.toggle(refs.theme.DARK);
+	if (refs.body.classList.contains(refs.theme.DARK)) {
+		refs.themeSwitch.setAttribute('checked', true);
+		localStorage.setItem('Theme', refs.theme.DARK);
+		localStorage.setItem('IsChecked', true);
+	} else {
+		refs.themeSwitch.setAttribute('checked', false);
+		localStorage.removeItem('Theme');
+		localStorage.removeItem('IsChecked');
+	}
 }
