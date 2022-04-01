@@ -2364,6 +2364,8 @@ var refs = {
     DARK: 'dark-theme'
   }
 };
+refs.body.classList.add(refs.theme.LIGHT); //строка добавляет светлую тему на body, но код работает и без нее
+
 refs.menuList.insertAdjacentHTML('beforeend', refs.menuMarkup);
 
 if (localStorage.length) {
@@ -2418,7 +2420,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60948" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50198" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

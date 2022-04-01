@@ -12,6 +12,7 @@ const refs = {
 		},
 }
 
+refs.body.classList.add(refs.theme.LIGHT); //строка добавляет светлую тему на body, но код работает и без нее
 refs.menuList.insertAdjacentHTML('beforeend', refs.menuMarkup);
 if (localStorage.length) {
 	refs.body.classList.add(localStorage.getItem('Theme'));
