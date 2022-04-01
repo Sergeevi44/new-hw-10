@@ -1,0 +1,29 @@
+{
+  "name": "new-hw-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /new-hw-10/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergeevi44/new-hw-10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergeevi44/new-hw-10/issues"
+  },
+  "homepage": "https://github.com/Sergeevi44/new-hw-10#readme",
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.7.2",
+    "sass": "^1.49.10"
+  }
+}
