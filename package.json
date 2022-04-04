@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Sergeevi44/new-hw-10/issues"
   },
-  "homepage": "https://Sergeevi44.github.io/new-hw-10/src",
+  "homepage": "https://Sergeevi44.github.io/new-hw-10/src/",
   "dependencies": {
     "gh-pages": "^3.2.3",
     "parcel-bundler": "^1.12.5",
