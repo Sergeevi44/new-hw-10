@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /new-hw-10/",
+    "dev": "parcel src/index.html",
+    "build": "parcel build --no-minify src/*.html --public-url /new-hw-10/",
 	"deploy": "gh-pages -d dist",
 "predeploy": "npm run build"
   },
